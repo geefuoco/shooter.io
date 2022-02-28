@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  user-select: none;
+}
+
+body{
+  overflow: hidden;
+}
+
+.score-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+}
+
+.score-label{
+  font-weight: bold;
+}
