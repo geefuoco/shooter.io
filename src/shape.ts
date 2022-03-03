@@ -18,6 +18,18 @@ export default class Shape {
     this.size = size;
   }
 
+  getPosition(): { x: number; y: number } {
+    return this.position;
+  }
+
+  getColor(): string {
+    return this.color;
+  }
+
+  getSize(): { width: number; length: number } {
+    return this.size;
+  }
+
   draw() {
     this.context.fillStyle = this.color;
     this.context.fillRect(
@@ -25,6 +37,28 @@ export default class Shape {
       this.position.y,
       this.size.width,
       this.size.length
+    );
+  }
+
+  drawArc() {
+    this.context.fillStyle = this.color;
+    this.context.beginPath();
+    this.context.arc(
+      this.position.x,
+      this.position.y,
+      this.size.width / 2,
+      0,
+      360
+    );
+    this.context.fill();
+  }
+
+  outOfBounds(): boolean {
+    return (
+      this.position.x + this.size.width < 0 ||
+      this.position.x - this.size.width > window.innerWidth ||
+      this.position.y + this.size.width < 0 ||
+      this.position.y - this.size.width > window.innerHeight
     );
   }
 }
